@@ -2,24 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserSearchRequest;
 
 class UserController extends Controller
 {
-    public function index(Request $request)
+    protected $userService;
+
+    public function __construct(UserService $userService)
     {
-        $query = User::query();
-        if ($request->has('search')) {
-            $query->where('name', 'like', '%' . $request->search . '%');
-        }
-        return response()->json($query->get());
+        $this->userService = $userService;
+    }
+
+    public function index(UserSearchRequest $request)
+    {
+        $search = $request->get('search');
+        $users = $this->userService->getAll($search);
+        return response()->json($users);
     }
 
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
-        $user->delete();
+        $this->userService->delete($id);
         return response()->json(['message' => 'User deleted']);
     }
 }
