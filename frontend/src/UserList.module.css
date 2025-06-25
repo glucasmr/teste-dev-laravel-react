@@ -1,0 +1,41 @@
+.container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.input:focus {
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+    min-width: 50%;
+    margin: 0 auto;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.tableLoading {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+th,
+td {
+    padding: 8px;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.loading,
+.noUsers {
+    text-align: center;
+    padding: 16px;
+}
