@@ -27,13 +27,13 @@ Tarefas:
 
 ## 1. Clone o repositório
 ```bash
-git clone <repo-url>
-cd <repo-folder>
+git clone https://github.com/glucasmr/teste-dev-laravel-react
+cd teste-dev-laravel-react
 ```
 
 ## 2. Suba todos os serviços (backend, frontend e banco de dados)
 ```bash
-docker-compose up -d
+docker-compose up -d --build
 ```
 Isso irá:
 - Construir e iniciar o backend Laravel, frontend React e banco MySQL
