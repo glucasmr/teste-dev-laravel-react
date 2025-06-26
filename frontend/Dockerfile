@@ -3,7 +3,7 @@ FROM node:20-alpine
 WORKDIR /app
 
 COPY package*.json ./
-RUN rm -rf node_modules package-lock.json && npm install
+RUN npm install
 
 COPY . .
 
